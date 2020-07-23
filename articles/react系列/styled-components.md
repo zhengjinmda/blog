@@ -4,7 +4,7 @@
 ### 引入
 > import styled from 'styled-components'
 ### 入门
-```
+```js
 import React, { useState } from 'react'
 
 import styled from 'styled-components'
@@ -33,7 +33,7 @@ const App = () => (
 export default App
 ```
 ### 基于属性的适配
-```
+```js
 import React, { useState } from 'react'
 
 import styled from 'styled-components'
@@ -62,7 +62,7 @@ const App = () => (
 export default App
 ```
 ### 样式与继承
-```
+```js
 //继承
 import React from 'react'
 import styled from 'styled-components'
@@ -150,7 +150,7 @@ const App = () => (
 export default App
 ```
 ### 属性传值
-```
+```js
 import React, { useState } from 'react'
 
 import styled from 'styled-components'
@@ -180,7 +180,7 @@ export default App
 ```
 
 ### coming from css
-```
+```js
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
@@ -221,7 +221,7 @@ const App = () => {
 export default App
 ```
 ### 伪元素、伪类选择器和嵌套
-```
+```js
 //伪元素 伪类选择器
 import React, { useState } from 'react'
 import styled from 'styled-components'
@@ -305,7 +305,7 @@ export default App
 # 高级
 ### 主题
 styled-components 提供 `<ThemeProvider>` 包装组件以支持主题 `<ThemeProvider>` 通过 context API 为其后代组件提供主题 在其渲染树种的所有组件都能访问主题
-```
+```js
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
@@ -343,7 +343,7 @@ const App = () => {
 export default App
 ```
 ### 函数主题
-```
+```js
 // theme prop 也可以传递一个函数 该函数接收渲染树上级 <ThemeProvider> 所传递的主题。
 // 通过这种方式使 themes 形成上下文
 import React from 'react'
@@ -388,7 +388,7 @@ const App = () => (
 export default App
 ```
 ### 在 `styled-components`外使用主题
-```
+```js
 // 如果需要在 styled-components 外使用主题 可以使用高阶组件 withTheme
 import { withTheme } from 'styled-components'
 
@@ -402,7 +402,7 @@ class MyComponent extends React.Component {
 export default withTheme(MyComponent)
 ```
 ### theme props
-```
+```js
 //主题可以通过 theme prop 传递给组件 通过 theme prop 可以绕过或重写 ThemeProvider 所提供的主题
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
@@ -436,7 +436,7 @@ const App = () => (
 export default App
 ```
 ### Refs
-```
+```js
 //通过传递 ref prop 给 style component 将获得
 // 1 底层 DOM 节点
 // 2 React 组件实例
