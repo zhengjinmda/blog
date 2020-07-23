@@ -5,3 +5,5 @@
 ## es6
 ### let 和 count
 [let和count](https://github.com/zhengjinmda/blog/blob/master/articles/es6/let%E5%92%8Cconst.md)
+### 模板字符串
+[模板字符串]()
