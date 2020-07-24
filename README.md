@@ -6,4 +6,4 @@
 ### let 和 count
 [let和count](https://github.com/zhengjinmda/blog/blob/master/articles/es6/let%E5%92%8Cconst.md)
 ### 模板字符串
-[模板字符串]()
+[模板字符串](https://github.com/zhengjinmda/blog/blob/master/articles/es6/%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
