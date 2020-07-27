@@ -10,4 +10,4 @@
 ### 箭头函数
 [箭头函数](https://github.com/zhengjinmda/blog/blob/master/articles/es6/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0.md)
 ### symbol
-[symbol]()
+[symbol](https://github.com/zhengjinmda/blog/blob/master/articles/es6/Symbol.md)
