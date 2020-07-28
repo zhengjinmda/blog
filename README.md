@@ -11,3 +11,9 @@
 [箭头函数](https://github.com/zhengjinmda/blog/blob/master/articles/es6/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0.md)
 ### symbol
 [symbol](https://github.com/zhengjinmda/blog/blob/master/articles/es6/Symbol.md)
+### 迭代器与 for of
+[迭代器与for...of]()
+
+
+
+`react-components`
