@@ -12,8 +12,14 @@
 ### symbol
 [symbol](https://github.com/zhengjinmda/blog/blob/master/articles/es6/Symbol.md)
 ### 迭代器与 for of
-[迭代器与for...of]()
+[迭代器与for...of](https://github.com/zhengjinmda/blog/blob/master/articles/es6/%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8Eforof.md)
+### 模拟 Set 数据结构
+[模拟 Set 数据结构]() 未完成
 
 
 
+
+#### 学习路径
+es6 js 部分参考冴羽的博客
+[冴羽的博客](https://github.com/mqyqingfeng/Blog)
 `react-components`
