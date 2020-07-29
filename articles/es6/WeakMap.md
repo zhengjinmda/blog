@@ -73,3 +73,22 @@ function countOwnKeys(obj) {
 }
 ```
 #### 3. 私有属性
+```js
+const privateData = new WeakMap();
+
+class Person {
+    constructor(name, age) {
+        privateData.set(this, { name: name, age: age });
+    }
+
+    getName() {
+        return privateData.get(this).name;
+    }
+
+    getAge() {
+        return privateData.get(this).age;
+    }
+}
+
+export default Person;
+```
