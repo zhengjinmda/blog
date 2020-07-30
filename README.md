@@ -20,11 +20,13 @@
 ### WeakMap
 [WeakMap](https://github.com/zhengjinmda/blog/blob/master/articles/es6/WeakMap.md)
 ### Promise
-[Promise]()
+[Promise](https://github.com/zhengjinmda/blog/blob/master/articles/es6/Promise.md)
 ### Generator
-[Generator]()
+[Generator](https://github.com/zhengjinmda/blog/blob/master/articles/es6/Generator.md)
 ### async,await
-[async,await]()
+[async,await](https://github.com/zhengjinmda/blog/blob/master/articles/es6/async%EF%BC%8Cawait.md)
+### 异步实践
+[异步实践]()
 
 #### 学习路径
 es6 js 部分参考冴羽的博客
