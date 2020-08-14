@@ -13,6 +13,7 @@ const file1 =  './a.txt'
 const file2 =  './b.txt'
 const file3 =  './c.txt'
 
+
 // 使用Promise 方法
 console.log('********************使用 Promise 方法********************')
 // readFile(file1).then(res => {
@@ -21,6 +22,7 @@ console.log('********************使用 Promise 方法********************')
 // }).then(res => {
 //     console.log(res.toString())
 //     return readFile(file3)
+
 // }).then(res => {
 //     console.log(res.toString())
 // })

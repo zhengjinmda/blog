@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lazy-image {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/alexa_Artboard.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/alexa_Artboard2.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/alexa_Artboard3.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/alexa_Artboard4.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_1.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_2.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_3.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_4.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_5.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_6.png" class="lazy-image" />
+    </div>
+    <div>
+        <img src='./images/loading.gif' data-src="./images/google_assistant_picture_7.png" class="lazy-image" />
+    </div>
+    <script>
+        let imageElements = Array.prototype.slice.call(document.querySelectorAll('.lazy-image'))
+        let height = document.documentElement.clientHeight
+        function inViewShow() {
+            let imageElements = Array.prototype.slice.call(document.querySelectorAll('.lazy-image'))
+            let len = imageElements.length
+            imageElements.forEach(item => {
+                const {top} = item.getBoundingClientRect()
+                console.log(top, height)
+                if(top < height) {
+                    item.src = item.dataset.src
+                }
+            })
+            // for (let i = 0; i < len; i++) {
+            //     let imageElement = imageElements[i] //item
+            //     const rect = imageElement.getBoundingClientRect() // 出现在视野的时候加载图片         
+            //     if (rect.top < document.documentElement.clientHeight) {
+            //         imageElement.src = imageElement.dataset.src // 移除掉已经显示的             
+            //         imageElements.splice(i, 1)
+            //         len--
+            //         i--
+            //     }
+            // }
+        }
+
+        inViewShow()
+        document.addEventListener('scroll', inViewShow)
+    </script>
+</body>
+
+</html>
