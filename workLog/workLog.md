@@ -163,3 +163,36 @@ Leedarson UI 有些已经做出修改，但是由于没有及时拉去代码，�
     + 将活动对象压入函数作用域链顶端
 4. 执行函数 随着函数执行 修改变量对象的属性值
 5. 执行完毕 执行上下文栈弹出函数执行上下文
+
+2020.8.19
+今日工作
+1. 观看 `Arnoo App帮助与常见问题` 需求文档
+2. 用 react 仿照 antd 编写 UI 库（Button）
+   
+明日计划
+1. 继续仿照 antd 编写 UI 库
+
+心得体会
+同事说进步最快的方法就是自己造轮子，但是造轮子有一定的难度，先挑简单的 button 入手。一开始准备使用 styled-components 会让组件化更容易些，但是用 css 适用于各个场景。目前已经实现了 type size disabled circle onCilck icon 这几个 API。但是 css 中的值还需单独封装到一个文件中，以后好做修改。
+
+2020.8.20
+今日工作
+1. 帮忙测试c610 smart 模块的 UI
+2. 用 react 仿照 antd 编写 UI 库（完成 button 100% select 10%）
+
+明日计划
+1. 用 react 仿照 antd 编写 UI 库
+
+心得体会
+今天把 css 中的变量单独分装到一个文件夹，并 UI 库设置了主题。之前的 button 组件是用 react 写的， 今天用 react hook 重写了，因为 button 没有太多的逻辑， 所以很难体会到两者的太大差别。
+
+2020.8.21
+今日工作
+1. 用 react 仿照 antd 编写 UI 库（select 70%）
+
+下周计划
+1. 用 react 仿照 antd 编写 UI 库
+2. 探讨如何搭建内部绩效考核系统 并进行技术选项
+
+心得体会
+Select 组件要处理 onclickoutside 的情况，同事推荐使用 react-onclickoutside，由于源代码较短，可以阅读源码，并尝试自己实现。
