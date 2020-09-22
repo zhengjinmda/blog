@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, '1', 1, '1', 1, '1'];
+        // 基础方法
+        // var unique = function (arr) {
+        //     var newArr = [];
+        //     newArr[0] = arr[0];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         for (var j = 0; j < newArr.length; j++) {
+        //             if (arr[i] === newArr[j]) {
+        //                 break;
+        //             }
+        //         }
+        //         if (j === newArr.length) {
+        //             newArr.push(arr[i])
+        //         }
+        //     }
+        //
+        //     return newArr;
+        // }
+        // var newArr = unique(arr)
+
+        // indexOf 方法
+        // var unique = function(arr) {
+        //     var newArr = []
+        //     for(var i = 0; i < arr.length; i++) {
+        //         if(newArr.indexOf(arr[i]) === -1) {
+        //             newArr.push(arr[i])
+        //         }
+        //     }
+        //
+        //     return newArr
+        // }
+        // var newArr = unique(arr)
+        // console.log(newArr)
+
+        // 排序后去重
+        // var unique = function (arr) {
+        //     var newArr = [];
+        //     var sortArray = arr.concat().sort();
+        //     var seen;
+        //     for (var i = 0; i < sortArray.length; i++) {
+        //         if (!i || seen !== sortArray[i]) {
+        //             newArr.push(sortArray[i])
+        //         }
+        //         seen = sortArray[i]
+        //     }
+        //     return newArr
+        // }
+
+        // console.log(unique(arr));
+
+        // 实现排序功能
+        var array1 = [1, 2, '1', 2, 1];
+        var array2 = [1, 1, '1', 2, 2];
+
+        // 第一版
+        // function unique(array, isSorted) {
+        //     var res = [];
+        //     var seen = [];
+
+        //     for (var i = 0, len = array.length; i < len; i++) {
+        //         var value = array[i];
+        //         if (isSorted) {
+        //             if (!i || seen !== value) {
+        //                 res.push(value)
+        //             }
+        //             seen = value;
+        //         }
+        //         else if (res.indexOf(value) === -1) {
+        //             res.push(value);
+        //         }
+        //     }
+        //     return res;
+        // }
+
+        // console.log(unique(array1)); // [1, 2, "1"]
+        // console.log(unique(array2, true)); // [1, "1", 2]
+
+        // 大小写
+        var array3 = [1, 1, 'a', 'A', 2, 2];
+
+        // 第二版
+        // iteratee 英文释义：迭代 重复
+        // function unique(array, isSorted, iteratee) {
+        //     var res = [];
+        //     var seen = [];
+
+        //     for (var i = 0, len = array.length; i < len; i++) {
+        //         var value = array[i];
+        //         var computed = iteratee ? iteratee(value, i, array) : value;
+        //         if (isSorted) {
+        //             if (!i || seen !== computed) {
+        //                 res.push(value)
+        //             }
+        //             seen = computed;
+        //         }
+        //         else if (iteratee) {
+        //             if (seen.indexOf(computed) === -1) {
+        //                 seen.push(computed);
+        //                 res.push(value);
+        //             }
+        //         }
+        //         else if (res.indexOf(value) === -1) {
+        //             res.push(value);
+        //         }
+        //     }
+        //     return res;
+        // }
+
+        // console.log(unique(array3, false, function (item) {
+        //     return typeof item == 'string' ? item.toLowerCase() : item
+        // })); // [1, "a", 2]
+
+        // filter
+        // 直接去重
+        var array = [1, 2, 1, 1, '1'];
+
+        function unique(array) {
+            var res = array.filter(function (item, index, array) {
+                return array.indexOf(item) === index;
+            })
+            return res;
+        }
+
+        console.log(unique(array));
+        // 排序后去重
+        function unique(array) {
+            return array.concat().sort().filter(function(item, index, array) {
+                return !index || item !== array[index - 1]
+            })
+        }
+
+        // Object 键值对
+        
+
+    </script>
+</body>
+
+</html>
