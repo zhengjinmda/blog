@@ -1,4 +1,5 @@
 ## Promise
+https://juejin.cn/post/6844903665686282253
 ### Promise 的基本结构
 promise 的构造函数必须接收一个函数作为形参，我们称之为 handle， handle 又包含 resolve 和 reject 两个参数，它们也是两个函数。
 ```js
