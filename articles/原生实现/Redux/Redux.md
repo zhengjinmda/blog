@@ -45,37 +45,87 @@ export default function configureStore() {
 ```js
 // 传入一个 object
 export default function combineReducers(reducers) {
-    // 获取该 object 的 key 值
-    const reducerKeys = Object.keys(reducers)
-    // 过滤后的 reducer
-    const finalReducers = {}
-    // 获取每一个 key 对应的 value
-    // 在开发环境下判断值是否为 undefined
-    // 然后将值类型是函数的值放入 finalReducers
-    for(let i = 0; i < reducerKeys.length; i++) {
-        const key = reducerKeys[i]
+ // 获取该 Object 的 key 值
+	const reducerKeys = Object.keys(reducers)
+	// 过滤后的 reducers
+	const finalReducers = {}
+	// 获取每一个 key 对应的 value
+	// 在开发环境下判断值是否为 undefined
+	// 然后将值类型是函数的值放入 finalReducers
+	for (let i = 0; i < reducerKeys.length; i++) {
+		const key = reducerKeys[i]
 
-        if(process.env.NODE_ENV !== 'production') {
-            if(typeof reducers[key] === 'undefined') {
-                warning(`No reducer provided for key "${key}"`)
-            } 
-        }
+		if (process.env.NODE_ENV !== 'production') {
+			if (typeof reducers[key] === 'undefined') {
+				warning(`No reducer provided for key "${key}"`)
+			}
+		}
 
-        if(typeof reducers[key] === 'function') {
-            finalReducers[key] = reducer[key]
-        }
-    }
+		if (typeof reducers[key] === 'function') {
+			finalReducers[key] = reducers[key]
+		}
+	}
+	// 拿到过滤后的 reducers 的 key 值
+	const finalReducerKeys = Object.keys(finalReducers)
 
-    // 拿到过滤后的 reducers 的 key 值
-    const finalReducerKeys = Object.keys(finalReducers)
+	// 在开发环境下判断，保存不期望 key 的缓存用以下面做警告
+	let unexpectedKeyCache
+	if (process.env.NODE_ENV !== 'production') {
+		unexpectedKeyCache = {}
+	}
 
-    // 在开发环境下判断，保存不期望 key 的缓存用以下面做警告
-    let unexpectedKeyCache
-    if(process.env.NODE_ENV !== 'production') {
-        unexpectedKeyCache = {}
-    }
-
-    let shapeAssertionError
-    
+	let shapeAssertionError
+	try {
+	// 该函数解析在下面
+		assertReducerShape(finalReducers)
+	} catch (e) {
+		shapeAssertionError = e
+	}
+// combineReducers 函数返回一个函数，也就是合并后的 reducer 函数
+// 该函数返回总的 state
+// 并且你也可以发现这里使用了闭包，函数里面使用到了外面的一些属性
+	return function combination(state = {}, action) {
+		if (shapeAssertionError) {
+			throw shapeAssertionError
+		}
+		// 该函数解析在下面
+		if (process.env.NODE_ENV !== 'production') {
+			const warningMessage = getUnexpectedStateShapeWarningMessage(
+				state,
+				finalReducers,
+				action,
+				unexpectedKeyCache
+			)
+			if (warningMessage) {
+				warning(warningMessage)
+			}
+		}
+		// state 是否改变
+		let hasChanged = false
+		// 改变后的 state
+		const nextState = {}
+		for (let i = 0; i < finalReducerKeys.length; i++) {
+		// 拿到相应的 key
+			const key = finalReducerKeys[i]
+			// 获得 key 对应的 reducer 函数
+			const reducer = finalReducers[key]
+			// state 树下的 key 是与 finalReducers 下的 key 相同的
+			// 所以你在 combineReducers 中传入的参数的 key 即代表了 各个 reducer 也代表了各个 state
+			const previousStateForKey = state[key]
+			// 然后执行 reducer 函数获得该 key 值对应的 state
+			const nextStateForKey = reducer(previousStateForKey, action)
+			// 判断 state 的值，undefined 的话就报错
+			if (typeof nextStateForKey === 'undefined') {
+				const errorMessage = getUndefinedStateErrorMessage(key, action)
+				throw new Error(errorMessage)
+			}
+			// 然后将 value 塞进去
+			nextState[key] = nextStateForKey
+			// 如果 state 改变
+			hasChanged = hasChanged || nextStateForKey !== previousStateForKey
+		}
+		// state 只要改变过，就返回新的 state
+		return hasChanged ? nextState : state
+	}
 }
 ```
