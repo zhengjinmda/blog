@@ -1,4 +1,5 @@
 # Reduce
+https://www.processon.com/mindmap/5fe93759e0b34d2934ed99af
 ## 简介
 ```js
 array.reduce((total, currentValue, currentIndex, arr) => {
