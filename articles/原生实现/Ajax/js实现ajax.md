@@ -1,4 +1,5 @@
 ## ajax
+ajax 通过 xmlHttpResqust 向服务器端发起异步请求获取资源，然后通过js来操作dom，更新页面数据。
 
 ### XMLHttpRequest
 1. XMLHttpRequest() 该构造函数用于构造一个XMLHttpRequest实例对象。
